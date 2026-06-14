@@ -1,0 +1,6 @@
+dist
+node_modules
+*.log
+certs/*.key
+certs/*.crt
+.env

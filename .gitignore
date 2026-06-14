@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.log
+.env
+.env.local
+coverage/
+
+# Sertifikat TLS lokal (jangan commit kunci privat)
+certs/*.pem
+certs/*.key
+certs/*.crt
+!certs/.gitkeep
