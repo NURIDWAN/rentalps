@@ -1,0 +1,21 @@
+.git
+.gitignore
+node_modules
+dist
+coverage
+*.log
+npm-debug.log*
+
+# Jangan kirim konfigurasi/secrets lokal ke Docker build context.
+.env
+.env.*
+!.env.example
+!.env.production.example
+
+# Sertifikat lokal dipasang lewat volume jika benar-benar diperlukan.
+certs/*.pem
+certs/*.key
+certs/*.crt
+
+.vercel
+.vercelignore

@@ -83,6 +83,29 @@ cd ../mobile
 ./gradlew :app:assembleDebug -PBASE_URL=https://nama-project.vercel.app/api/
 ```
 
+## Deploy ke VPS + Docker
+
+Backend juga sudah disiapkan untuk VPS Docker melalui:
+
+| File | Fungsi |
+|---|---|
+| `Dockerfile` | Build image production Node.js |
+| `docker-compose.yml` | Backend + PostgreSQL + Redis |
+| `docker-compose.caddy.yml` | Reverse proxy HTTPS otomatis via Caddy |
+| `.env.production.example` | Template konfigurasi production |
+| `deploy/Caddyfile` | Konfigurasi Caddy |
+| `docs/deploy-vps-docker.md` | Tutorial deploy lengkap |
+
+Jalankan dari root backend:
+
+```bash
+cp .env.production.example .env.production
+# edit .env.production: API_DOMAIN, PGPASSWORD, REDIS_PASSWORD, JWT_SECRET
+docker compose --env-file .env.production -f docker-compose.yml -f docker-compose.caddy.yml up -d --build
+```
+
+Lihat panduan lengkap di `docs/deploy-vps-docker.md`.
+
 ## Akun Demo
 
 | Role | Username | Password |
